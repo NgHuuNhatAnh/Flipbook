@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://i.postimg.cc/5yJF65Xd/AASC-favicon.png" type="image/png">
+  <title>AASC profile</title>
+</head>
+
+<body>
+
+ 
+
+      <div class="flipbook">
+        
+      
+      
+      </div>
+    
+     
+      <script>
+    const urls = `
+    https://i.postimg.cc/4dgKdQMM/1.jpg
+    https://i.postimg.cc/NMcyMkVZ/2.jpg
+    https://i.postimg.cc/Y9H49zVZ/3.jpg
+    https://i.postimg.cc/ydyDSS4f/4.jpg
+    https://i.postimg.cc/W3wdJJLx/5.jpg
+    https://i.postimg.cc/tTNsVVG0/6.jpg
+    https://i.postimg.cc/zBFyRRYY/7.jpg
+    https://i.postimg.cc/qRxNCCHr/8.jpg
+    https://i.postimg.cc/8ckjdPTz/9.jpg
+    https://i.postimg.cc/7hPf1Yqg/10.jpg
+    https://i.postimg.cc/J07G34RD/11.jpg
+    https://i.postimg.cc/3NLWt5wv/12.jpg
+    https://i.postimg.cc/GtM9Xwpj/13.jpg
+    https://i.postimg.cc/zvd3xZf7/14.jpg
+    https://i.postimg.cc/mkdhmfrV/15.jpg
+    https://i.postimg.cc/nrdM3bLW/16.jpg
+    https://i.postimg.cc/2yH30R6D/17.jpg
+    https://i.postimg.cc/BZN8SDC6/18.jpg
+    https://i.postimg.cc/44wKft13/19.jpg
+    https://i.postimg.cc/tRD1qPzZ/20.jpg
+    `.trim().split("\n");
+
+    const flipbook = document.querySelector(".flipbook");
+
+    urls.forEach(url => {
+        const div = document.createElement("div");
+        div.className = "page";
+        div.innerHTML = `<img src="${url}" alt="">`;
+        flipbook.appendChild(div);
+    });
+    </script>
+
+      <script src="jquery.js"></script>
+      <script src="turn.js"></script>
+
+
+      <script>
+
+
+    $(document).ready(function () {
+        const book = $(".flipbook");
+        const maxOffset = 1200/2;
+
+        book.turn({
+            autoCenter: false
+        });
+
+        function adjustMargin(page) {
+            const totalPages = book.turn('pages');
+
+            // Reset margin
+            book.css({
+                "margin-left": "0px",
+                "margin-right": "0px",
+                // "transition": "margin 0.35s ease-in-out" // reset trước để tránh áp dụng sai
+            });
+
+          
+            if (page === 1) {
+                // Trang đầu → transition + margin-right
+                
+                book.css("margin-right", "calc(90vh*210/297)");
+            } 
+            else if (page === totalPages) {
+                // Trang cuối → transition + margin-left
+                
+                book.css("margin-left", "calc(90vh*210/297)");
+            }
+            // Các trang giữa → margin = 0, không transition
+        }
+
+        // Khi lật trang
+        book.on("turning", function (e, page) {
+            adjustMargin(page);
+        });
+
+        // Lúc load trang đầu
+        adjustMargin(1);
+    });
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
