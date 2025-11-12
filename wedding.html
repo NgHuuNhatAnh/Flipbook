@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./CSS/style_wedding.css" />
+  <link rel="icon" href="https://i.postimg.cc/5yJF65Xd/AASC-favicon.png" type="image/png">
+  <title>AASC profile</title>
+</head>
+
+<body>
+
+ 
+
+      <div class="flipbook">
+        <div>
+            <div class="parallax-section">
+               
+                <IMG class="cover" SRC="https://i.postimg.cc/Y2Y45k7C/1.jpg" >
+                <div class="shape s1"></div>
+                <div class="shape s2"></div>
+                <div class="shape s3"></div>
+                <div class="shape s4"></div>
+                <div class="shape s5"></div>
+            </div>
+        </div>
+      
+
+
+
+      </div>
+
+      <style>
+
+           .cover {
+            position: absolute;
+            height: 33%; /* ✅ đúng bằng 1/3 flipbook */
+            width: auto !important;
+            object-fit: contain;
+            top: 20% !important;
+            
+            }
+
+            .parallax-section {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0e1b30, #1f3a62);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #696e72 !important;
+            }
+
+            
+
+            /* Shape chung */
+            .shape {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.3;
+            border-radius: 50%;
+            background: #4cc9f0;
+            animation: float 6s infinite ease-in-out alternate;
+            }
+
+            /* Các layers với tốc độ khác nhau */
+            .s1 { top: 20px; left: 10%; animation-duration: 7s; transform: translateZ(-40px); }
+            .s2 { bottom: 10px; left: 40%; animation-duration: 4s; background: #f72585; transform: translateZ(-20px); }
+            .s3 { top: 50px; right: 15%; animation-duration: 8s; background: #7209b7; }
+            .s4 { bottom: 30px; right: 35%; animation-duration: 5s; background: #48bfe3; }
+            .s5 { top: 150px; left: 60%; animation-duration: 6s; background: #b5179e; }
+
+            /* Animation trôi + parallax */
+            @keyframes float {
+            0%   { transform: translateY(0) translateX(0) scale(1); }
+            100% { transform: translateY(-40px) translateX(50px) scale(1.2); }
+            }
+
+            /* Parallax theo scroll */
+            .parallax-section {
+            perspective: 1000px;
+            }
+
+            .parallax-section .shape {
+            transform-style: preserve-3d;
+            }
+      </style>
+    
+     
+      <script>
+    const urls = `
+    https://i.postimg.cc/bJLhs3bV/A-102.jpg
+https://i.postimg.cc/zBprV0Wp/A-108.jpg
+https://i.postimg.cc/63zXyYR0/A-128.jpg
+https://i.postimg.cc/J0nWJZcS/A-154.jpg
+https://i.postimg.cc/qqRdnyxk/A-201.jpg
+https://i.postimg.cc/2y6fvh7m/A-224.jpg
+https://i.postimg.cc/SRvbGRgp/A-255.jpg
+https://i.postimg.cc/Hnh1tn6m/A-284.jpg
+https://i.postimg.cc/MHFJYH9T/A-312.jpg
+https://i.postimg.cc/KjHh5j08/A-335.jpg
+https://i.postimg.cc/d3xc935Z/A-352.jpg
+https://i.postimg.cc/dQHFFNJK/A-359.jpg
+https://i.postimg.cc/mZX44pT4/A-385.jpg
+https://i.postimg.cc/NGJttCQK/A-391.jpg
+https://i.postimg.cc/RCsmmpv6/A-397.jpg
+https://i.postimg.cc/VLJ8k9Nt/A-403.jpg
+https://i.postimg.cc/L6Jp8ksf/A-406.jpg
+https://i.postimg.cc/3JkTxjwn/A-408.jpg
+https://i.postimg.cc/15bZnggG/A-431.jpg
+https://i.postimg.cc/L6GMYqqW/A-437.jpg
+https://i.postimg.cc/tTDjY2Pr/A-84.jpg
+https://i.postimg.cc/ncjyJHds/C-1083.jpg
+https://i.postimg.cc/yYgMHVfn/C-1093.jpg
+https://i.postimg.cc/J4DfL1Tc/C-1106.jpg
+https://i.postimg.cc/CLB3gFvt/C-1118.jpg
+https://i.postimg.cc/jdpGqG9g/C-1149.jpg
+https://i.postimg.cc/L6cr4r7W/C-1164.jpg
+https://i.postimg.cc/SNBwQw5w/C-1182.jpg
+https://i.postimg.cc/4NDr4rqT/C-1194.jpg
+https://i.postimg.cc/vHJp8pkQ/C-1204.jpg
+https://i.postimg.cc/3JsPrPVJ/C-1213.jpg
+https://i.postimg.cc/MKChZhNT/C-1217.jpg
+https://i.postimg.cc/YqTwG4GK/C-123.jpg
+https://i.postimg.cc/7YjyGCGv/C-134.jpg
+https://i.postimg.cc/vZ9wWQfs/C-137.jpg
+https://i.postimg.cc/FHcXj93h/C-142.jpg
+https://i.postimg.cc/K8LhnZBy/C-146.jpg
+https://i.postimg.cc/g2RbvY8h/C-155.jpg
+https://i.postimg.cc/DzTk6tP4/C-177.jpg
+https://i.postimg.cc/JhLVx95X/C-182.jpg
+https://i.postimg.cc/W4vL8Qw7/C-185.jpg
+https://i.postimg.cc/FK45p2VZ/C-207.jpg
+https://i.postimg.cc/hGBWsH1M/C-211.jpg
+https://i.postimg.cc/d0YP6zjN/C-231.jpg
+https://i.postimg.cc/1zQhBLrj/C-253.jpg
+https://i.postimg.cc/5tScRnsn/C-284.jpg
+https://i.postimg.cc/VNWyVDKG/C-295.jpg
+https://i.postimg.cc/DzPVMBxx/C-302.jpg
+https://i.postimg.cc/5tScRnsD/C-309.jpg
+https://i.postimg.cc/xd3r4tsn/C-313.jpg
+https://i.postimg.cc/DZfVkLDT/C-321.jpg
+https://i.postimg.cc/cJBqbXDL/C-345.jpg
+https://i.postimg.cc/mDZxfCqL/C-355.jpg
+https://i.postimg.cc/sXfFd78x/C-370.jpg
+https://i.postimg.cc/pTVNbz75/C-385.jpg
+https://i.postimg.cc/XJNMSdhd/C-395.jpg
+https://i.postimg.cc/4dWDJnkK/C-405.jpg
+https://i.postimg.cc/SsgByjFY/C-428.jpg
+https://i.postimg.cc/fL8Gwknc/C-434.jpg
+https://i.postimg.cc/TwtzRhMC/C-442.jpg
+https://i.postimg.cc/Qtf2XVGb/C-447.jpg
+https://i.postimg.cc/85Z21sQX/C-455.jpg
+https://i.postimg.cc/mkh0hRBX/C-509.jpg
+https://i.postimg.cc/HnjfjHdf/C-522.jpg
+https://i.postimg.cc/j2CGCKt1/C-529.jpg
+https://i.postimg.cc/WztQtjTB/C-540.jpg
+https://i.postimg.cc/SRjwjqmb/C-560.jpg
+https://i.postimg.cc/NFLWLYQY/C-593.jpg
+https://i.postimg.cc/NFLWLYQy/C-596.jpg
+https://i.postimg.cc/3NWPW73k/C-644.jpg
+https://i.postimg.cc/VvT2CTN5/C-667.jpg
+https://i.postimg.cc/XqhtChvF/C-688.jpg
+https://i.postimg.cc/T1SBDSPD/C-693.jpg
+https://i.postimg.cc/kGZLbZ5v/C-699.jpg
+https://i.postimg.cc/brM4tMvL/C-700.jpg
+https://i.postimg.cc/Y2y5Z4x2/C-703.jpg
+https://i.postimg.cc/xjFwhkPT/C-727.jpg
+https://i.postimg.cc/SQtB3XGj/C-749.jpg
+https://i.postimg.cc/661kg7h8/C-952.jpg
+https://i.postimg.cc/yYgMHVfx/C-978.jpg
+
+    `.trim().split("\n");
+
+    const flipbook = document.querySelector(".flipbook");
+
+    urls.forEach(url => {
+        const div = document.createElement("div");
+        div.className = "page";
+        div.innerHTML = `<img src="${url}" alt="">`;
+        flipbook.appendChild(div);
+    });
+    </script>
+
+      <script src="./JS/jquery.js"></script>
+      <script src="./JS/turn.js"></script>
+
+
+      <script>
+
+
+    $(document).ready(function () {
+        const book = $(".flipbook");
+        const maxOffset = 1200/2;
+
+        book.turn({
+            autoCenter: false
+        });
+
+        function adjustMargin(page) {
+            const totalPages = book.turn('pages');
+
+            // Reset margin
+            book.css({
+                "margin-left": "0px",
+                "margin-right": "0px",
+                // "transition": "margin 0.35s ease-in-out" // reset trước để tránh áp dụng sai
+            });
+
+          
+            if (page === 1) {
+                // Trang đầu → transition + margin-right
+                
+                book.css("margin-right", "calc(90vh*210/297)");
+            } 
+            else if (page === totalPages) {
+                // Trang cuối → transition + margin-left
+                
+                book.css("margin-left", "calc(90vh*210/297)");
+            }
+            // Các trang giữa → margin = 0, không transition
+        }
+
+        // Khi lật trang
+        book.on("turning", function (e, page) {
+            adjustMargin(page);
+        });
+
+        // Lúc load trang đầu
+        adjustMargin(1);
+    });
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
