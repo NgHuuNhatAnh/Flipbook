@@ -11,6 +11,17 @@
 
 <body>
 
+
+<div class="video-container">
+    <iframe width="560" height="315" data-src="https://www.youtube.com/embed/2yy8vLU4pls?si=KdL843mK-CJYdJZq" src="" title="YouTube video player" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <!-- <iframe width="560" height="315" data-src="https://www.youtube.com/embed/2yy8vLU4pls?si=KdL843mK-CJYdJZq&controls=0"
+        src=""
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+</div>
     
 <div class="book-wrapper">
       <div class="flipbook">
@@ -27,7 +38,14 @@
         </div>
       
 
-       
+        <div>
+            <IMG class="pic--5" SRC="https://i.postimg.cc/mkh0hRBX/C-509.jpg" alt="">
+            
+        </div>
+
+        <div>
+            <IMG class="pic--6" SRC="https://i.postimg.cc/mkh0hRBX/C-509.jpg" alt="">
+        </div>
         
         
 
@@ -367,8 +385,26 @@
             30.10.2025
         </div>
 
-         <div>
+        <div>
+            <IMG class="pic--5" SRC="https://i.postimg.cc/mkh0hRBX/C-509.jpg" alt="">
+            
+        </div>
 
+        <div>
+            <IMG class="pic--6" SRC="https://i.postimg.cc/mkh0hRBX/C-509.jpg" alt="">
+        </div>
+
+
+         <div>
+            <div class="parallax-section">
+               
+            
+                <div class="shape s1"></div>
+                <div class="shape s2"></div>
+                <div class="shape s3"></div>
+                <div class="shape s4"></div>
+                <div class="shape s5"></div>
+            </div>
          </div>
 
       </div>
@@ -464,7 +500,57 @@ https://i.postimg.cc/yYgMHVfx/C-978.jpg
             $(".right-btn").on("click", function () {
                 book.turn("next");
             });
+
+                //bật video
+               $(document).on("click", function(e) {
+
+                    const container = $(".video-container");
+                    const iframe = container.find("iframe");
+                    const originalSrc = iframe.data("src");
+
+                    if (container.is(":visible")) {
+
+                        if ($(e.target).closest(".video-container").length === 0) {
+                            container.fadeOut(200);
+                            console.log(originalSrc);
+                            iframe.attr("src", originalSrc);
+                            $(".pic--5, .pic--6").css("height", "auto");
+                        }
+
+                    } else {
+
+                        if ($(e.target).is(".pic--5, .pic--6")) {
+
+                            let newSrc = originalSrc;
+                            if (!newSrc.includes("autoplay=1")) {
+                                newSrc += (newSrc.includes("?") ? "&" : "?") + "autoplay=1";
+                            }
+
+                            iframe.attr("src", newSrc);
+                            container.fadeIn(200);
+                            $(".pic--5, .pic--6").css("height", "50%");
+                        }
+                    }
+
+                });
+
+                    // Click vào video container để **ngăn lan ra document**
+                  
+
+            //   $(".pic--5, .pic--6").on("click", function(){
+            //         $("#video-container").fadeIn();
+            //     });
+
+            //     // Click vào container để tắt video
+            //     $("#video-container").on("click", function(){
+            //         $(this).fadeOut();
+            //         // Reset video để dừng phát
+            //         //$(this).find("iframe").attr("src", $(this).find("iframe").attr("src"));
+            //     });
         });
+
+
+    
     </script>
 
 

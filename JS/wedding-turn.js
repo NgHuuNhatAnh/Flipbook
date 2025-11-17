@@ -156,7 +156,7 @@
       turnCorners: "bl,br",
       when: null,
     },
-    X = { cornerSize: 500 },
+    X = { cornerSize: window.innerHeight * 0.2 },
     g = {
       init: function (a) {
         y =
