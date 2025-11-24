@@ -20,6 +20,17 @@ body {
     background-size: cover;
 }
 
+
+
+.book-wrapper {
+    position: relative;
+    height: 90vh;
+    width: calc(90vh*420/297);
+    /* margin-right: calc(90vh*1);  */
+    overflow: visible;
+    /* transition: margin 0.35s ease-in-out; */
+}
+
 .flipbook {
  
     /* aspect-ratio: 297/420;  */
@@ -29,9 +40,9 @@ body {
    width: 1200px;
     height: calc(1200px*297/420); */
 
-    height: 90vh;
-    width:  calc(90vh*420/297);
-     margin-right: calc(90vh*210/297);
+      width: 100% !important;
+    height: 100% !important;
+     /* margin-right: calc(90vh*210/297); */
      
 }
 
@@ -71,3 +82,48 @@ body {
     margin-bottom: 10px;
 }
 
+
+
+.nav-btn {
+ FONT-WEIGHT: 800;
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    user-select: none;
+    position: absolute;
+    transition: left 0.35s ease-in-out, right 0.35s ease-in-out;
+}
+
+.nav-btn:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.left-btn {
+    left: 10vw;
+    padding-right: 0.3vh;
+}
+
+.right-btn {
+    right: 10vw;
+    padding-left: 0.3vh;
+}
+
+.close-left {
+    left: calc((100vw - (90vh*210/297))*0.4) !important;
+}
+
+.close-right {
+    right: calc((100vw - (90vh*210/297))*0.4) !important;
+}
