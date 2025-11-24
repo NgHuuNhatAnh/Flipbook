@@ -12,13 +12,16 @@
 <body>
 
  
-
+<div class="book-wrapper">
       <div class="flipbook">
         
       
       
       </div>
+</div>
     
+       <button class="nav-btn left-btn">&lt;</button>
+<button class="nav-btn right-btn">&gt;</button>
      
       <script>
     const urls = `
@@ -61,46 +64,143 @@
       <script>
 
 
-    $(document).ready(function () {
-        const book = $(".flipbook");
-        const maxOffset = 1200/2;
+ $(document).ready(function () {
+            const book = $(".flipbook");
 
-        book.turn({
-            autoCenter: false
-        });
-
-        function adjustMargin(page) {
-            const totalPages = book.turn('pages');
-
-            // Reset margin
-            book.css({
-                "margin-left": "0px",
-                "margin-right": "0px",
-                // "transition": "margin 0.35s ease-in-out" // reset trước để tránh áp dụng sai
+            book.turn({
+                autoCenter: true
             });
 
-          
-            if (page === 1) {
-                // Trang đầu → transition + margin-right
-                
-                book.css("margin-right", "calc(90vh*210/297)");
-            } 
-            else if (page === totalPages) {
-                // Trang cuối → transition + margin-left
-                
-                book.css("margin-left", "calc(90vh*210/297)");
-            }
-            // Các trang giữa → margin = 0, không transition
-        }
+            function updateNavButtons(page) {
+                const total = book.turn("pages");
 
-        // Khi lật trang
-        book.on("turning", function (e, page) {
-            adjustMargin(page);
+                // Reset class
+                $(".left-btn").removeClass("close-left");
+                $(".right-btn").removeClass("close-right");
+
+                // === Trang đầu → kéo nút trái sát vào ===
+                if (page === 1) {
+                    $(".left-btn").addClass("close-left");
+                    $(".right-btn").addClass("close-right");
+                }
+
+                // === Trang cuối → kéo nút phải sát vào ===
+                if (page === total) {
+                    $(".left-btn").addClass("close-left");
+                    $(".right-btn").addClass("close-right");
+                }
+            }
+
+            // Khi lật trang
+            book.on("turning", function (e, page) {
+                updateNavButtons(page);
+            });
+
+            // Khi load
+            updateNavButtons(1);
+
+            // Nút điều hướng
+            $(".left-btn").on("click", function () {
+                book.turn("previous");
+            });
+
+            $(".right-btn").on("click", function () {
+                book.turn("next");
+            });
+
+                //bật video
+            //    $(document).on("click", function(e) {
+
+            //         const container = $(".video-container");
+            //         const iframe = container.find("iframe");
+            //         const originalSrc = iframe.data("src");
+
+            //         if (container.is(":visible")) {
+
+            //             if ($(e.target).closest(".video-container").length === 0) {
+            //                 container.fadeOut(200);
+            //                 console.log(originalSrc);
+            //                 iframe.attr("src", originalSrc);
+            //                 $(".pic--5, .pic--6").css("height", "auto");
+            //                 $(".vanban").css("opacity", "1");
+            //             }
+
+            //         } else {
+
+            //             if ($(e.target).is(".pic--5, .pic--6")) {
+
+            //                 let newSrc = originalSrc;
+            //                 if (!newSrc.includes("autoplay=1")) {
+            //                     newSrc += (newSrc.includes("?") ? "&" : "?") + "autoplay=1";
+            //                 }
+
+            //                 iframe.attr("src", newSrc);
+            //                 container.fadeIn(200);
+            //                 $(".pic--5, .pic--6").css("height", "50%");
+            //                 $(".vanban").css("opacity", "0");
+            //             }
+            //         }
+
+            //     });
+
+                    // Click vào video container để **ngăn lan ra document**
+                  
+
+            //   $(".pic--5, .pic--6").on("click", function(){
+            //         $("#video-container").fadeIn();
+            //     });
+
+            //     // Click vào container để tắt video
+            //     $("#video-container").on("click", function(){
+            //         $(this).fadeOut();
+            //         // Reset video để dừng phát
+            //         //$(this).find("iframe").attr("src", $(this).find("iframe").attr("src"));
+            //     });
         });
 
-        // Lúc load trang đầu
-        adjustMargin(1);
-    });
+
+    
+
+    // $(document).ready(function () {
+    //     const book = $(".flipbook");
+    //     const maxOffset = 1200/2;
+
+    //     book.turn({
+    //         autoCenter: false
+    //     });
+
+    //     function adjustMargin(page) {
+    //         const totalPages = book.turn('pages');
+
+    //         // Reset margin
+    //         book.css({
+    //             "margin-left": "0px",
+    //             "margin-right": "0px",
+    //             // "transition": "margin 0.35s ease-in-out" // reset trước để tránh áp dụng sai
+    //         });
+
+          
+    //         if (page === 1) {
+    //             // Trang đầu → transition + margin-right
+                
+    //             book.css("margin-right", "calc(90vh*210/297)");
+    //         } 
+    //         else if (page === totalPages) {
+    //             // Trang cuối → transition + margin-left
+                
+    //             book.css("margin-left", "calc(90vh*210/297)");
+    //         }
+    //         // Các trang giữa → margin = 0, không transition
+    //     }
+
+    //     // Khi lật trang
+    //     book.on("turning", function (e, page) {
+    //         adjustMargin(page);
+    //     });
+
+    //     // Lúc load trang đầu
+    //     adjustMargin(1);
+    // });
 
 
 
