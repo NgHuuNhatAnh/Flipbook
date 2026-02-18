@@ -177,7 +177,7 @@ objects.forEach(obj => {
   start: "top 80%",
   end: "bottom bottom",
   scrub: 1,
-    markers: true,
+    // markers: true,
     id: "scne2",
   snap: {
     snapTo: 1,        // 0 = top, 1 = bottom
